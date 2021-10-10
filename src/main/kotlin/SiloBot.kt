@@ -1,7 +1,12 @@
 import command.server.AnnounceCMD
 import command.server.ClearCMD
+import dev.kord.common.entity.MessageType
+import dev.kord.common.entity.PresenceStatus
 import dev.kord.core.Kord
-import kotlinx.coroutines.processNextEventInCurrentThread
+import dev.kord.core.on
+import dev.kord.gateway.DiscordPresence
+import dev.kord.gateway.Intents
+import dev.kord.gateway.builder.PresenceBuilder
 
 suspend fun main() {
 
@@ -13,17 +18,24 @@ suspend fun main() {
     AnnounceCMD().onCommand(client)
     ClearCMD().onCommand(client)
 
-    client.login()
+    client.login {
+        name = "Silo"
+        intents = Intents("Intent")
+        presence {
+            afk = false
+            status = PresenceStatus.DoNotDisturb
+            playing("Do !help")
+        }
+    }
 }
 
 object BotUtil {
-
     fun getArgs(s: String): List<String> {
         return s.split(" ")
     }
 
     fun getMainEmbedColor(): List<Int> {
-        return listOf(17, 140, 79).toList()
+        return listOf(255, 215, 0).toList()
     }
 
     fun getCommandPrefix(): String {
