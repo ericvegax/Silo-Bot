@@ -1,16 +1,16 @@
 <h1 align="center"><img src="./assets/logo.gif" width="30px"> Silo Bot <img src="./assets/logo.gif" width="30px"></h1>
 <p align="center">Built To Moderate & Manage My Discord Server</p>
 
-## ✨Features
+## Features
 Coming Soon...
 
-## 🚧 Tech Stack
+## Tech Stack
 
 - [Kotlin](https://kotlinlang.org)
 - [Kord](https://github.com/kordlib/kord)
 - [Heroku](https://www.heroku.com)
 
-## 📝 [Support Server](https://discord.gg/NwZfkNyfeR)
+## [Support Server](https://discord.gg/NwZfkNyfeR)
 
 If you have issues with any of my plugins or applications, please join and ask for help.
 
