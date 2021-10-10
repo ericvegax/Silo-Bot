@@ -1,14 +1,21 @@
+import command.server.AnnounceCMD
 import dev.kord.core.Kord
-import dev.kord.core.event.message.MessageCreateEvent
-import dev.kord.core.on
 
 suspend fun main() {
     val client = Kord("ODk2NTI2NzQ2NjIxNDU2NDE0.YWIZmQ.hvq3Aa1JjUBLNUV2fU5O6RR3-1g")
 
-    client.on<MessageCreateEvent> {
-        if (message.content == "Test")
-            message.getChannel().createMessage("It works!")
-    }
+    AnnounceCMD().onCommand(client)
 
     client.login()
+}
+
+open class SiloBot {
+
+    open fun getMainEmbedColor(): List<Int> {
+        return listOf(255, 215, 0).toList()
+    }
+
+    open fun getCommandPrefix(): String {
+        return "!"
+    }
 }
