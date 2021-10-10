@@ -1,1 +1,1 @@
-web:java src/main/kotlin/SiloBot.kt
+worker: java -jar target/silo-bot.jar
