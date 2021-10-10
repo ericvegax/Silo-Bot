@@ -7,7 +7,7 @@ Coming Soon...
 ## 🚧 Tech Stack
 
 - [Kotlin](https://kotlinlang.org)
-- discord.kord@0.8.0-M6
+- [Kord](https://github.com/kordlib/kord)@0.8.0-M6
 - [Heroku](https://www.heroku.com)
 
 ## 📝 [Support Server](https://discord.gg/NwZfkNyfeR)
