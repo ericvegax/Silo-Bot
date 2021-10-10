@@ -20,7 +20,6 @@ suspend fun main() {
 
     client.login {
         name = "Silo"
-        intents = Intents("Intent")
         presence {
             afk = false
             status = PresenceStatus.DoNotDisturb
