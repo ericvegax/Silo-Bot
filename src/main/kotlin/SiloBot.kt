@@ -1,3 +1,4 @@
+import command.ICommand
 import command.server.AnnounceCMD
 import command.server.ClearCMD
 import dev.kord.common.entity.MessageType
@@ -22,9 +23,16 @@ suspend fun main() {
         name = "Silo"
         presence {
             afk = false
-            status = PresenceStatus.DoNotDisturb
-            playing("Do !help")
+            status = PresenceStatus.Online
+            playing("!help")
+            competing("Competing")
         }
+    }
+}
+
+object Registration {
+    fun registerCommand(command: ICommand) {
+        command.onCommand()
     }
 }
 
