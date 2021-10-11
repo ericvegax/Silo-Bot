@@ -16,7 +16,7 @@ class HelpCMD : ICommand {
             val args = BotUtil.getArgs(message.content)
             val eColor = BotUtil.getMainEmbedColor()
             val prefix = BotUtil.getCommandPrefix()
-            
+
             if (args[0] == "${prefix}help") {
                 if (message.getAuthorAsMember()?.getPermissions()?.contains(Permission.Administrator) == true) {
                     message.getChannel().createMessage {
@@ -28,7 +28,7 @@ class HelpCMD : ICommand {
                                 inline = true
                                 name = "General Commands"
                                 for (command in BotUtil.getCommandsMap()["general"]!!) {
-                                    value = command
+                                    value = BotUtil.getCommandsMap()["general"].toString()
                                 }
                             }
 
