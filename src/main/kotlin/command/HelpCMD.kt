@@ -22,16 +22,16 @@ class HelpCMD : ICommand {
                     message.getChannel().createMessage {
 
                         embed {
-                            description = "These are all my commands"
+                            title = "My Commands"
                             color = Color(eColor[0], eColor[1], eColor[2])
 
-                           field {
-                                name = "General Commands"
-                                inline = false
-                                value = "Value"
+                            val builder: StringBuilder = StringBuilder()
 
-                               this.value.plus("Other Value")
+                            for (i in 0..BotUtil.getCommandsMap()["general"]?.size!!) {
+                                builder.append("${BotUtil.getCommandsMap()["general"]!![i]}\n")
                             }
+
+                            description = builder.toString()
 
                             footer {
                                 this.text = "Indeedious#0001"
