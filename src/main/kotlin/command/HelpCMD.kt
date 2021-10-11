@@ -66,13 +66,13 @@ class HelpCMD : ICommand {
                         }
 
                     }
-                } else {
-                    message.getChannel().createMessage {
-                        embed {
-                            title = "Incorrect Usage!"
-                            description = "Usage: `!help`"
-                            color = Color(208, 0, 0)
-                        }
+                }
+            } else {
+                message.getChannel().createMessage {
+                    embed {
+                        title = "Incorrect Usage!"
+                        description = "Usage: `!help`"
+                        color = Color(208, 0, 0)
                     }
                 }
             }
