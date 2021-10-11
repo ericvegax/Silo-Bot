@@ -4,6 +4,10 @@ import command.server.ClearCMD
 import dev.kord.common.entity.PresenceStatus
 import dev.kord.core.Kord
 
+// !! = Not Null
+// ? = If not null
+// ?: = If null do this
+
 suspend fun main() {
     val token = System.getenv("BOT_TOKEN")
         ?: throw Exception("Must include bot token in environment variable for bot to run")

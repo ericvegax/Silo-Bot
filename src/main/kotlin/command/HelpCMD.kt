@@ -25,15 +25,15 @@ class HelpCMD : ICommand {
                             description = "These are all my commands"
                             color = Color(eColor[0], eColor[1], eColor[2])
 
-                            field {
+                           field {
                                 name = "General Commands"
-                                inline = true
-                                value = BotUtil.getCommandsMap()["general"]?.get(0).toString()
-                            }
-                            
-                            field {
                                 inline = false
-                                value = "Test"
+                                value = BotUtil.getCommandsMap()["general"]?.get(0).toString()
+
+                               apply {
+                                   inline = false
+                                   value = "Applied Value"
+                               }
                             }
 
                             footer {
