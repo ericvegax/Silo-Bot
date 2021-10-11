@@ -48,8 +48,10 @@ class HelpCMD : ICommand {
                                     value = builder.toString()
                                 }
 
+                                builder = StringBuilder()
+
                                 for (i in 0 until BotUtil.getCommandsMap()["admin"]?.size!!)
-                                    builder = builder.append("${BotUtil.getCommandsMap()["admin"]!![i]}\n")
+                                    builder.append("${BotUtil.getCommandsMap()["admin"]!![i]}\n")
 
                                 field {
                                     name = "Admin Commands"
