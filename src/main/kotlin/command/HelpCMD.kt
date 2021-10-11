@@ -28,7 +28,7 @@ class HelpCMD : ICommand {
                            field {
                                 name = "General Commands"
                                 inline = false
-                                value = BotUtil.getCommandsMap()["general"]?.get(0).toString()
+                                value = "Value"
 
                                apply {
                                    inline = false
