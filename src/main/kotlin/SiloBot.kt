@@ -50,11 +50,11 @@ object BotUtil {
         "**!blacklist (@user)** Blacklist a user from Silo commands",
         "**!unblacklist (@user)** Remove a user from the blacklist",
         "**!blacklists** view all of the current blacklists",
-        "!setticketmsg",
-        "!setticketcategory",
-        "!settranscriptlog",
-        "!setticketsopen (true/false)",
-        "!setmaxtickets (amount)"
+        "**!setticketmsg** Set the message shown for each new ticket",
+        "**!setticketcategory** Set the category to create tickets in",
+        "**!settranscriptlog** Set the log for where transcripts will go",
+        "**!setticketsopen (true/false)** Change whether or not tickets can be created",
+        "**!setmaxtickets (amount)** Set the max amount of tickets per user"
     )
 
     private val commandList = mapOf("general" to generalCommands, "admin" to adminCommands)

@@ -28,19 +28,18 @@ class HelpCMD : ICommand {
 
                         var builder: StringBuilder = StringBuilder()
 
-                        if (message.getAuthorAsMember()?.getPermissions()?.contains(Permission.Administrator) == false) {
+                        if (message.getAuthorAsMember()?.getPermissions()
+                                ?.contains(Permission.Administrator) == false
+                        ) {
                             for (i in 0 until BotUtil.getCommandsMap()["general"]?.size!!)
                                 builder.append("${BotUtil.getCommandsMap()["general"]!![i]}\n")
                         } else {
-
-//                            for (i in 0 until BotUtil.getCommandsMap()["general"]?.size!!)
-//                                builder.append("${BotUtil.getCommandsMap()["general"]!![i]}\n")
 
                             for (i in 0 until BotUtil.getCommandsMap()["admin"]?.size!!)
                                 builder = builder.append("${BotUtil.getCommandsMap()["admin"]!![i]}\n")
 
                             field {
-                                name = "Admin Commands"
+                                name = "Admin Commands\n"
                                 inline = false
                                 value = builder.toString()
                             }
