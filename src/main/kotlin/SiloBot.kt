@@ -1,4 +1,4 @@
-import command.ICommand
+import command.HelpCMD
 import command.server.AnnounceCMD
 import command.server.ClearCMD
 import dev.kord.common.entity.PresenceStatus
@@ -11,11 +11,10 @@ suspend fun main() {
 
     val client = Kord("ODk2NTI2NzQ2NjIxNDU2NDE0.YWIZmQ.hvq3Aa1JjUBLNUV2fU5O6RR3-1g")
 
-    AnnounceCMD().onCommand(client)
-    ClearCMD().onCommand(client)
+    registerCommands(client)
 
     client.login {
-        name = "Silo"
+        name = "GoldenCodes General Bot"
         presence {
             afk = false
             status = PresenceStatus.Online
@@ -24,17 +23,42 @@ suspend fun main() {
     }
 }
 
-object Registration {
-    fun registerCommand(command: ICommand) {
-
-    }
-
-    fun registerListener() {
-
-    }
+fun registerCommands(client: Kord) {
+    AnnounceCMD().onCommand(client)
+    ClearCMD().onCommand(client)
+    HelpCMD().onCommand(client)
 }
 
 object BotUtil {
+
+    private val commands = listOf(
+        "**!help** Displays all my commands",
+        "**!about** Get to know me",
+        "**!status** Get info on the status of Silo",
+        "**!new** Create a new ticket",
+        "**!close** Close a ticket",
+        "**!info** View info on a ticket",
+        "**!transcript** Get a transcript of the conversation",
+        "**!add (user) (#channel)** Add a member to a ticket",
+        "**!remove (user) (#channel)** Remove a member from a ticket",
+        "**!rename** Rename a ticket",
+        "**!closeall** Close all open tickets",
+        "**!blacklist (@user)** Blacklist a user from Silo commands",
+        "**!unblacklist (@user)** Remove a user from the blacklist",
+        "**!blacklists** view all of the current blacklists",
+        "!setticketmsg",
+        "!setticketcategory",
+        "!settranscriptlog",
+        "!setticketsopen (true/false)",
+        "!setmaxtickets (amount)",
+        "!",
+        "!"
+    ).toList()
+
+    fun getCommandList(): List<String> {
+        return commands
+    }
+
     fun getArgs(s: String): List<String> {
         return s.split(" ")
     }
