@@ -24,11 +24,11 @@ class HelpCMD : ICommand {
                         embed {
                             description = "These are all my commands"
                             color = Color(eColor[0], eColor[1], eColor[2])
-                            
+
                             field {
                                 name = "General Commands"
                                 inline = true
-                                for (i in 0..BotUtil.getCommandsMap()["general"]!!.size) {
+                                for (i in 7 downTo 0) {
                                     value = BotUtil.getCommandsMap()["general"]?.get(i).toString()
                                 }
                             }
