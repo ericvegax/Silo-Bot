@@ -19,8 +19,7 @@ suspend fun main() {
         presence {
             afk = false
             status = PresenceStatus.Online
-            playing("!help")
-            competing("Competing")
+            listening("!help")
         }
     }
 }
