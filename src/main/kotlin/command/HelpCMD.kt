@@ -23,7 +23,7 @@ class HelpCMD : ICommand {
                     message.getChannel().createMessage {
 
                         embed {
-                            title = "General Commands"
+                            description = "Here's a list of my commands"
                             color = Color(eColor[0], eColor[1], eColor[2])
                             timestamp = Clock.System.now()
 
@@ -34,7 +34,19 @@ class HelpCMD : ICommand {
                             ) {
                                 for (i in 0 until BotUtil.getCommandsMap()["general"]?.size!!)
                                     builder.append("${BotUtil.getCommandsMap()["general"]!![i]}\n")
+
+                                field {
+                                    name = "General Commands"
+                                    inline = false
+                                    value = builder.toString()
+                                }
                             } else {
+
+                                field {
+                                    name = "General Commands"
+                                    inline = false
+                                    value = builder.toString()
+                                }
 
                                 for (i in 0 until BotUtil.getCommandsMap()["admin"]?.size!!)
                                     builder = builder.append("${BotUtil.getCommandsMap()["admin"]!![i]}\n")
@@ -46,11 +58,9 @@ class HelpCMD : ICommand {
                                 }
                             }
 
-                            description = builder.toString()
-
                             footer {
-                                this.text = "Indeedious#0001"
-                                this.icon = member?.avatar?.cdnUrl?.toUrl()
+                                this.text = member?.getGuild()?.getOwner()?.displayName.toString()
+                                this.icon = member?.getGuild()?.getOwner()?.avatar?.cdnUrl?.toUrl()
                             }
                         }
                     }
@@ -61,7 +71,7 @@ class HelpCMD : ICommand {
                     embed {
                         title = "Incorrect Usage!"
                         description = "Usage: `!help`"
-                        color = Color(3, 7, 30)
+                        color = Color(208, 0, 0)
                     }
                 }
             }
