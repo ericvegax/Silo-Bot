@@ -1,13 +1,8 @@
 import command.ICommand
 import command.server.AnnounceCMD
 import command.server.ClearCMD
-import dev.kord.common.entity.MessageType
 import dev.kord.common.entity.PresenceStatus
 import dev.kord.core.Kord
-import dev.kord.core.on
-import dev.kord.gateway.DiscordPresence
-import dev.kord.gateway.Intents
-import dev.kord.gateway.builder.PresenceBuilder
 
 suspend fun main() {
 
@@ -32,7 +27,11 @@ suspend fun main() {
 
 object Registration {
     fun registerCommand(command: ICommand) {
-        command.onCommand()
+
+    }
+
+    fun registerListener() {
+
     }
 }
 
