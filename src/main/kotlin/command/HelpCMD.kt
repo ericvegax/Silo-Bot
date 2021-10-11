@@ -18,42 +18,52 @@ class HelpCMD : ICommand {
             val eColor = BotUtil.getMainEmbedColor()
             val prefix = BotUtil.getCommandPrefix()
 
-            if (args[0] == "${prefix}help") {
-                message.getChannel().createMessage {
+            if (args.size == 1) {
+                if (args[0] == "${prefix}help") {
+                    message.getChannel().createMessage {
 
-                    embed {
-                        title = "General Commands"
-                        color = Color(eColor[0], eColor[1], eColor[2])
-                        timestamp = Clock.System.now()
+                        embed {
+                            title = "General Commands"
+                            color = Color(eColor[0], eColor[1], eColor[2])
+                            timestamp = Clock.System.now()
 
-                        var builder: StringBuilder = StringBuilder()
+                            var builder: StringBuilder = StringBuilder()
 
-                        if (message.getAuthorAsMember()?.getPermissions()
-                                ?.contains(Permission.Administrator) == false
-                        ) {
-                            for (i in 0 until BotUtil.getCommandsMap()["general"]?.size!!)
-                                builder.append("${BotUtil.getCommandsMap()["general"]!![i]}\n")
-                        } else {
+                            if (message.getAuthorAsMember()?.getPermissions()
+                                    ?.contains(Permission.Administrator) == false
+                            ) {
+                                for (i in 0 until BotUtil.getCommandsMap()["general"]?.size!!)
+                                    builder.append("${BotUtil.getCommandsMap()["general"]!![i]}\n")
+                            } else {
 
-                            for (i in 0 until BotUtil.getCommandsMap()["admin"]?.size!!)
-                                builder = builder.append("${BotUtil.getCommandsMap()["admin"]!![i]}\n")
+                                for (i in 0 until BotUtil.getCommandsMap()["admin"]?.size!!)
+                                    builder = builder.append("${BotUtil.getCommandsMap()["admin"]!![i]}\n")
 
-                            field {
-                                name = "Admin Commands\n"
-                                inline = false
-                                value = builder.toString()
+                                field {
+                                    name = "Admin Commands\n"
+                                    inline = false
+                                    value = builder.toString()
+                                }
+                            }
+
+                            description = builder.toString()
+
+                            footer {
+                                this.text = "Indeedious#0001"
+                                this.icon = member?.avatar?.cdnUrl?.toUrl()
                             }
                         }
+                    }
 
-                        description = builder.toString()
-
-                        footer {
-                            this.text = "Indeedious#0001"
-                            this.icon = member?.avatar?.cdnUrl?.toUrl()
-                        }
+                }
+            } else {
+                message.getChannel().createMessage {
+                    embed {
+                        title = "Incorrect Usage!"
+                        description = "Usage: `!help`"
+                        color = Color(3, 7, 30)
                     }
                 }
-
             }
         }
     }
