@@ -28,7 +28,7 @@ class HelpCMD : ICommand {
                             val builder: StringBuilder = StringBuilder()
 
                             for (i in 0..BotUtil.getCommandsMap()["general"]?.size!!) {
-                                builder.append("${BotUtil.getCommandsMap()["general"]!![i]}\n")
+                                builder.append("${BotUtil.getCommandsMap()["general"]!![i - 1]}\n")
                             }
 
                             description = builder.toString()
