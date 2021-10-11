@@ -32,7 +32,7 @@ class HelpCMD : ICommand {
                             }
                             
                             field {
-                                inline = true
+                                inline = false
                                 value = "Test"
                             }
 
