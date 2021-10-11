@@ -30,14 +30,7 @@ class HelpCMD : ICommand {
                                 inline = false
                                 value = "Value"
 
-                               apply {
-                                   inline = false
-                                   value = "Applied Value"
-                               }
-                               
-                               also {
-                                   value = "Also Value"
-                               }
+                               this.value.plus("Other Value")
                             }
 
                             footer {
