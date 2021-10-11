@@ -23,25 +23,25 @@ class HelpCMD : ICommand {
                     message.getChannel().createMessage {
 
                         embed {
+                            title = null
                             description = "Here's a list of my commands"
                             color = Color(eColor[0], eColor[1], eColor[2])
                             timestamp = Clock.System.now()
 
                             var builder: StringBuilder = StringBuilder()
 
+                            for (i in 0 until BotUtil.getCommandsMap()["general"]?.size!!)
+                                builder.append("${BotUtil.getCommandsMap()["general"]!![i]}\n")
+
                             if (message.getAuthorAsMember()?.getPermissions()
                                     ?.contains(Permission.Administrator) == false
                             ) {
-                                for (i in 0 until BotUtil.getCommandsMap()["general"]?.size!!)
-                                    builder.append("${BotUtil.getCommandsMap()["general"]!![i]}\n")
-
                                 field {
                                     name = "General Commands"
                                     inline = false
                                     value = builder.toString()
                                 }
                             } else {
-
                                 field {
                                     name = "General Commands"
                                     inline = false
@@ -52,26 +52,27 @@ class HelpCMD : ICommand {
                                     builder = builder.append("${BotUtil.getCommandsMap()["admin"]!![i]}\n")
 
                                 field {
-                                    name = "Admin Commands\n"
+                                    name = "Admin Commands"
                                     inline = false
                                     value = builder.toString()
                                 }
                             }
+
 
                             footer {
                                 this.text = member?.getGuild()?.getOwner()?.displayName.toString()
                                 this.icon = member?.getGuild()?.getOwner()?.avatar?.cdnUrl?.toUrl()
                             }
                         }
-                    }
 
-                }
-            } else {
-                message.getChannel().createMessage {
-                    embed {
-                        title = "Incorrect Usage!"
-                        description = "Usage: `!help`"
-                        color = Color(208, 0, 0)
+                    }
+                } else {
+                    message.getChannel().createMessage {
+                        embed {
+                            title = "Incorrect Usage!"
+                            description = "Usage: `!help`"
+                            color = Color(208, 0, 0)
+                        }
                     }
                 }
             }
