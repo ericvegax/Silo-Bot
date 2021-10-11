@@ -1,21 +1,14 @@
 package command
 
+import dev.kord.common.Color
+import dev.kord.common.entity.Permission
 import dev.kord.core.Kord
 import dev.kord.core.behavior.channel.createMessage
 import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
-import dev.kord.rest.builder.message.EmbedBuilder
 import dev.kord.rest.builder.message.create.embed
-import kotlinx.datetime.Clock
-import kotlin.math.ceil
 
 class HelpCMD : ICommand {
-
-    /*
-        - Put all commands in a list
-        - write an equation to continously get the upper & lower bound in the list
-        - create a dynamic embed in order to display the commands
-     */
 
     override fun onCommand(client: Kord) {
         client.on<MessageCreateEvent> {
@@ -23,29 +16,59 @@ class HelpCMD : ICommand {
             val args = BotUtil.getArgs(message.content)
             val eColor = BotUtil.getMainEmbedColor()
             val prefix = BotUtil.getCommandPrefix()
-
-
+            
             if (args[0] == "${prefix}help") {
-                message.getChannel().createMessage {
-                    embed {
-                        title = "Command List"
-                        description = EmbedBuilder.ZERO_WIDTH_SPACE
-                        timestamp = Clock.System.now()
-                        footer {
-                            this.text = "Indeedious#0001"
-                            this.icon = member?.avatar?.cdnUrl?.toUrl()
+                if (message.getAuthorAsMember()?.getPermissions()?.contains(Permission.Administrator) == true) {
+                    message.getChannel().createMessage {
+
+                        embed {
+                            description = "These are all my commands"
+                            color = Color(eColor[0], eColor[1], eColor[2])
+                            field {
+                                inline = true
+                                name = "General Commands"
+                                for (command in BotUtil.getCommandsMap()["general"]!!) {
+                                    value = command
+                                }
+                            }
+
+                            footer {
+                                this.text = "Indeedious#0001"
+                                this.icon = member?.avatar?.cdnUrl?.toUrl()
+                            }
+                        }
+                    }
+                } else {
+                    message.getChannel().createMessage {
+
+                        embed {
+                            description = "All Bot Commands"
+                            color = Color(eColor[0], eColor[1], eColor[2])
+                            field {
+                                inline = true
+                                name = "General Commands"
+                                for (command in BotUtil.getCommandsMap()["general"]!!) {
+                                    value = command
+                                }
+                            }
+
+                            field {
+                                inline = true
+                                name = "Admin Commands"
+                                for (command in BotUtil.getCommandsMap()["admin"]!!) {
+                                    value = command
+                                }
+                            }
+
+                            footer {
+                                this.text = "Indeedious#0001"
+                                this.icon = member?.avatar?.cdnUrl?.toUrl()
+                            }
+
                         }
                     }
                 }
             }
         }
-    }
-
-    fun sendCommands(page: Int) {
-
-    }
-
-    fun getTotalPages(): Int {
-        return ceil((BotUtil.getCommandList().size / 7).toDouble()).toInt()
     }
 }

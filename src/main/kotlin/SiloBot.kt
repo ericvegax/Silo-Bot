@@ -5,7 +5,6 @@ import dev.kord.common.entity.PresenceStatus
 import dev.kord.core.Kord
 
 suspend fun main() {
-
     val token = System.getenv("BOT_TOKEN")
         ?: throw Exception("Must include bot token in environment variable for bot to run")
 
@@ -14,7 +13,6 @@ suspend fun main() {
     registerCommands(client)
 
     client.login {
-        name = "GoldenCodes General Bot"
         presence {
             afk = false
             status = PresenceStatus.Online
@@ -30,15 +28,17 @@ fun registerCommands(client: Kord) {
 }
 
 object BotUtil {
-
-    private val commands = listOf(
+    private val generalCommands = listOf(
         "**!help** Displays all my commands",
         "**!about** Get to know me",
         "**!status** Get info on the status of Silo",
         "**!new** Create a new ticket",
         "**!close** Close a ticket",
         "**!info** View info on a ticket",
-        "**!transcript** Get a transcript of the conversation",
+        "**!transcript** Get a transcript of the conversation"
+    ).toList()
+
+    private val adminCommands = listOf(
         "**!add (user) (#channel)** Add a member to a ticket",
         "**!remove (user) (#channel)** Remove a member from a ticket",
         "**!rename** Rename a ticket",
@@ -50,13 +50,13 @@ object BotUtil {
         "!setticketcategory",
         "!settranscriptlog",
         "!setticketsopen (true/false)",
-        "!setmaxtickets (amount)",
-        "!",
-        "!"
-    ).toList()
+        "!setmaxtickets (amount)"
+    )
 
-    fun getCommandList(): List<String> {
-        return commands
+    private val commandList = mapOf("general" to generalCommands, "admin" to adminCommands)
+
+    fun getCommandsMap(): Map<String, List<String>> {
+        return commandList
     }
 
     fun getArgs(s: String): List<String> {
