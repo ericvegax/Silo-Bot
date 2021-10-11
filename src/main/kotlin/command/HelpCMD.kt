@@ -28,9 +28,9 @@ class HelpCMD : ICommand {
                             field {
                                 name = "General Commands"
                                 inline = true
-                                for (i in 6 downTo 0) {
-                                    value = BotUtil.getCommandsMap()["general"]?.get(i).toString()
-                                }
+                                value = BotUtil.getCommandsMap()["general"]?.get(0).toString()
+                                value = "Test"
+                                value = "Test2"
                             }
 
                             footer {
