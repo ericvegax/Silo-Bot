@@ -34,6 +34,10 @@ class HelpCMD : ICommand {
                                    inline = false
                                    value = "Applied Value"
                                }
+                               
+                               also {
+                                   value = "Also Value"
+                               }
                             }
 
                             footer {
