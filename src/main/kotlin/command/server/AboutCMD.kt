@@ -8,6 +8,7 @@ import dev.kord.core.behavior.channel.createMessage
 import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
 import dev.kord.rest.builder.component.ButtonBuilder
+import dev.kord.rest.builder.message.create.actionRow
 import dev.kord.rest.builder.message.create.embed
 
 class AboutCMD : ICommand {
@@ -22,23 +23,11 @@ class AboutCMD : ICommand {
                 if (args[0] == "${prefix}about") {
 
                     message.getChannel().createMessage {
+
                         embed {
                             title = null
                             description = "About Me"
                             color = Color(eColor[0], eColor[1], eColor[2])
-
-                            // Test
-                            val button = ButtonBuilder.InteractionButtonBuilder(ButtonStyle.Primary, "click_to_function")
-                            button.label = "Label"
-                            button.emoji = DiscordPartialEmoji(Snowflake.max)
-                            button.disabled = false
-                            button.build()
-
-                            if (button.customId == "click_to_function") {
-                                message.getChannel().createMessage("Button Works!")
-                            }
-
-                            message.getChannel().createMessage(button.toString())
 
                             var builder: StringBuilder = StringBuilder()
 
@@ -80,6 +69,14 @@ class AboutCMD : ICommand {
                             footer {
                                 text = member?.getGuild()?.getOwner()?.displayName.toString()
                                 icon = member?.getGuild()?.getOwner()?.avatar?.cdnUrl?.toUrl()
+                            }
+                        }
+                        
+                        actionRow {
+                            this.interactionButton(ButtonStyle.Primary, "click_to_function") {
+                                label = "My First Button!"
+                                disabled = false
+                                build()
                             }
                         }
                     }
