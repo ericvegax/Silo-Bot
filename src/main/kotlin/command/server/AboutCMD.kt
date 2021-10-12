@@ -72,9 +72,9 @@ class AboutCMD : ICommand {
                         }
 
                         actionRow {
-                            interactionButton(ButtonStyle.Primary, "click_to_function") {
+                            interactionButton(ButtonStyle.Primary, "click_this_function") {
                                 label = "My First Button!"
-                                disabled = false
+                                build()
 
                                 if (message.interaction?.id?.asString == customId) {
                                     message.getAuthorAsMember()?.getDmChannel()?.createMessage {
@@ -85,8 +85,6 @@ class AboutCMD : ICommand {
                                         }
                                     }
                                 }
-
-                                build()
                             }
                         }
                     }
