@@ -73,7 +73,7 @@ class AboutCMD : ICommand {
                 message.getChannel().createMessage {
                     embed {
                         title = "Incorrect Usage!"
-                        description = "Usage: `!help`"
+                        description = "Usage: `!about`"
                         color = Color(208, 0, 0)
                     }
                 }
