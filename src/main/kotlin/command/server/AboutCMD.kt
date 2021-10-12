@@ -28,10 +28,17 @@ class AboutCMD : ICommand {
                             color = Color(eColor[0], eColor[1], eColor[2])
 
                             // Test
-                            val button = ButtonBuilder.InteractionButtonBuilder(ButtonStyle.Primary, "2")
-                            button.label = "A Random Button"
+                            val button = ButtonBuilder.InteractionButtonBuilder(ButtonStyle.Primary, "click_to_function")
+                            button.label = "Label"
+                            button.emoji = DiscordPartialEmoji(Snowflake.max)
+                            button.disabled = false
                             button.build()
 
+                            if (button.customId == "click_to_function") {
+                                message.getChannel().createMessage("Button Works!")
+                            }
+
+                            message.getChannel().createMessage(button.toString())
 
                             var builder: StringBuilder = StringBuilder()
 
