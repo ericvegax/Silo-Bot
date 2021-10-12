@@ -76,8 +76,7 @@ class AboutCMD : ICommand {
                                 label = "My First Button!"
                                 disabled = false
 
-                                if (message.interaction?.type == InteractionType.Component
-                                    && message.interaction?.id?.asString == customId) {
+                                if (message.interaction?.id?.asString == customId) {
                                     message.getAuthorAsMember()?.getDmChannel()?.createMessage {
                                         embed {
                                             title = "My Dm message"
