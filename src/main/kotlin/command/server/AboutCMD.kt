@@ -2,19 +2,15 @@ package command.server
 
 import command.ICommand
 import dev.kord.common.Color
+import dev.kord.common.entity.*
 import dev.kord.core.Kord
 import dev.kord.core.behavior.channel.createMessage
 import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
+import dev.kord.rest.builder.component.ButtonBuilder
 import dev.kord.rest.builder.message.create.embed
 
 class AboutCMD : ICommand {
-
-    /**
-     * - Purpose
-     * - Features
-     * - Back-end
-     */
 
     override fun onCommand(client: Kord) {
         client.on<MessageCreateEvent> {
@@ -24,11 +20,18 @@ class AboutCMD : ICommand {
 
             if (args.size == 1) {
                 if (args[0] == "${prefix}about") {
+
                     message.getChannel().createMessage {
                         embed {
                             title = null
                             description = "About Me"
                             color = Color(eColor[0], eColor[1], eColor[2])
+
+                            // Test
+                            val button = ButtonBuilder.InteractionButtonBuilder(ButtonStyle.Primary, "2")
+                            button.label = "A Random Button"
+                            button.build()
+
 
                             var builder: StringBuilder = StringBuilder()
 
@@ -65,6 +68,11 @@ class AboutCMD : ICommand {
                                 name = "Back-End"
                                 value = builder.toString()
                                 inline = false
+                            }
+
+                            footer {
+                                text = member?.getGuild()?.getOwner()?.displayName.toString()
+                                icon = member?.getGuild()?.getOwner()?.avatar?.cdnUrl?.toUrl()
                             }
                         }
                     }
