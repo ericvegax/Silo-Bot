@@ -69,7 +69,7 @@ class HelpCMD : ICommand {
 
                     }
                 }
-            } else {
+            } else if (args[0] == "${prefix}help" && args.size > 1) {
                 message.getChannel().createMessage {
                     embed {
                         title = "Incorrect Usage!"

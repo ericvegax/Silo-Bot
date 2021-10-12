@@ -69,7 +69,7 @@ class AboutCMD : ICommand {
                         }
                     }
                 }
-            } else {
+            } else if (args[0] == "${prefix}about" && args.size > 1) {
                 message.getChannel().createMessage {
                     embed {
                         title = "Incorrect Usage!"
