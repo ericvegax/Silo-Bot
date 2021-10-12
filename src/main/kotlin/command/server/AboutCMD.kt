@@ -7,7 +7,6 @@ import dev.kord.core.Kord
 import dev.kord.core.behavior.channel.createMessage
 import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
-import dev.kord.rest.builder.component.ButtonBuilder
 import dev.kord.rest.builder.message.create.actionRow
 import dev.kord.rest.builder.message.create.embed
 
@@ -71,12 +70,22 @@ class AboutCMD : ICommand {
                                 icon = member?.getGuild()?.getOwner()?.avatar?.cdnUrl?.toUrl()
                             }
                         }
-                        
+
                         actionRow {
                             this.interactionButton(ButtonStyle.Primary, "click_to_function") {
                                 label = "My First Button!"
                                 disabled = false
                                 build()
+
+                                if (this.customId == "click_to_function") {
+                                    message.getAuthorAsMember()?.getDmChannel()?.createMessage {
+                                        embed {
+                                            title = "My Dm message"
+                                            description = "Description of my DM Message"
+                                            color = Color(0, 1, 0)
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
