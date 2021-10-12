@@ -25,7 +25,7 @@ class AboutCMD : ICommand {
 
                         embed {
                             title = null
-                            description = "About Me"
+                            description = "About Me\n"
                             color = Color(eColor[0], eColor[1], eColor[2])
 
                             var builder: StringBuilder = StringBuilder()
@@ -35,7 +35,7 @@ class AboutCMD : ICommand {
                                 builder.append("**Moderation** Oversees this server and watch for any rules broken at all times\n")
                                 builder.append("**Management** Handles anything from welcomes to announcements, suggestions, resource updates, and more!\n")
 
-                                name = "Purpose"
+                                name = "Purpose\n"
                                 value = builder.toString()
                                 inline = false
                             }
@@ -48,7 +48,7 @@ class AboutCMD : ICommand {
                                 builder.append("**Punishment System** Contains the ability to detect broken rules\n")
                                 builder.append("**Payment System** Able to handle any transaction securely with PayPal\n")
 
-                                name = "Features"
+                                name = "Features\n"
                                 value = builder.toString()
                                 inline = false
                             }
@@ -72,12 +72,12 @@ class AboutCMD : ICommand {
                         }
 
                         actionRow {
-                            this.interactionButton(ButtonStyle.Primary, "click_to_function") {
+                            interactionButton(ButtonStyle.Primary, "click_to_function") {
                                 label = "My First Button!"
                                 disabled = false
-                                build()
 
-                                if (this.customId == "click_to_function") {
+                                if (message.interaction?.type == InteractionType.Component
+                                    && message.interaction?.id?.asString == customId) {
                                     message.getAuthorAsMember()?.getDmChannel()?.createMessage {
                                         embed {
                                             title = "My Dm message"
@@ -86,6 +86,8 @@ class AboutCMD : ICommand {
                                         }
                                     }
                                 }
+
+                                build()
                             }
                         }
                     }
