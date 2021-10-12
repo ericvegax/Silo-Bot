@@ -6,7 +6,6 @@ import dev.kord.core.Kord
 import dev.kord.core.behavior.channel.createMessage
 import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
-import dev.kord.rest.builder.message.EmbedBuilder
 import dev.kord.rest.builder.message.create.embed
 
 class AboutCMD : ICommand {
@@ -27,8 +26,8 @@ class AboutCMD : ICommand {
                 if (args[0] == "${prefix}about") {
                     message.getChannel().createMessage {
                         embed {
-                            title = "About Me"
-                            description = EmbedBuilder.ZERO_WIDTH_SPACE
+                            title = null
+                            description = "About Me"
                             color = Color(eColor[0], eColor[1], eColor[2])
 
                             var builder: StringBuilder = StringBuilder()
@@ -60,8 +59,8 @@ class AboutCMD : ICommand {
 
                                 builder = StringBuilder()
 
-                                builder.append("**Kord** This bot is built using a Kotlin Wrapper for the Discord API")
-                                builder.append("**Heroku** Currently, the 24/7 hosting of this bot is handled by Heroku")
+                                builder.append("**Kord** This bot is built using a Kotlin Wrapper for the Discord API\n")
+                                builder.append("**Heroku** Currently, the 24/7 hosting of this bot is handled by Heroku\n")
 
                                 name = "Back-End"
                                 value = builder.toString()
