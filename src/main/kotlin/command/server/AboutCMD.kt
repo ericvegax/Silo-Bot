@@ -76,7 +76,7 @@ class AboutCMD : ICommand {
                                 label = "My First Button!"
                                 build()
 
-                                if (message.applicationId?.equals(Snowflake(customId)) == true) {
+                                if (message.id.equals(customId)) {
                                     message.getAuthorAsMember()?.getDmChannel()?.createMessage {
                                         embed {
                                             title = "My Dm message"
