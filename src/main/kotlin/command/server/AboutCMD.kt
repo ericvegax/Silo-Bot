@@ -1,13 +1,10 @@
 package command.server
 
-import cache.data.MessageInteractionData
 import command.ICommand
 import dev.kord.common.Color
 import dev.kord.common.entity.*
 import dev.kord.core.Kord
 import dev.kord.core.behavior.channel.createMessage
-import dev.kord.core.entity.interaction.Interaction
-import dev.kord.core.entity.interaction.MessageInteraction
 import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
 import dev.kord.rest.builder.message.create.actionRow
@@ -79,7 +76,7 @@ class AboutCMD : ICommand {
                                 label = "My First Button!"
                                 build()
 
-                                if (message.interaction == message.interaction?.data?.let { MessageInteraction(it, message.kord, message.supplier) }) {
+                                if (message.applicationId?.asString == customId) {
                                     message.getAuthorAsMember()?.getDmChannel()?.createMessage {
                                         embed {
                                             title = "My Dm message"
