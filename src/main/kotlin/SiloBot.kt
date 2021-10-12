@@ -1,4 +1,5 @@
 import command.HelpCMD
+import command.server.AboutCMD
 import command.server.AnnounceCMD
 import command.server.ClearCMD
 import dev.kord.common.entity.PresenceStatus
@@ -29,6 +30,7 @@ fun registerCommands(client: Kord) {
     AnnounceCMD().onCommand(client)
     ClearCMD().onCommand(client)
     HelpCMD().onCommand(client)
+    AboutCMD().onCommand(client)
 }
 
 object BotUtil {
