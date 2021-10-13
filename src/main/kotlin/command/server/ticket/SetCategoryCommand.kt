@@ -21,22 +21,25 @@ class SetCategoryCommand : ICommand {
             val eColor = BotUtil.getMainEmbedColor()
             val prefix = BotUtil.getCommandPrefix()
 
-            if (args[0] == "${prefix}setticketchannel") {
-                if (args[1] == message.getGuild().getChannel(Snowflake(args[1])).mention) {
-                    kord.unsafe.guildMessageChannel(message.getGuild().id, Snowflake(args[1])).createMessage {
-                        embed {
-                            title = "Create a ticket"
-                            description = "Click the button below to create a ticket"
-                            color = Color(eColor[0], eColor[1], eColor[2])
-                        }
+            if (args[0] == "${prefix}setuptickets") {
+                kord.unsafe.guildMessageChannel(message.getGuild().id, Snowflake(767622445301497886)).createMessage {
+                    embed {
+                        title = "Create a ticket"
+                        description = "Click the button below to create a ticket"
+                        color = Color(eColor[0], eColor[1], eColor[2])
+                    }
 
-                        actionRow {
-                            interactionButton(ButtonStyle.Primary, "ticket_creation_button") {
-                                label = "Create Ticket"
-                                emoji = DiscordPartialEmoji(Snowflake("e62b930d873735bbede7ae1785d13233.svg"), ":envelope:", OptionalBoolean.Missing)
-                            }
+                    actionRow {
+                        interactionButton(ButtonStyle.Primary, "ticket_creation_button") {
+                            label = "Create Ticket"
+                            emoji = DiscordPartialEmoji(
+                                Snowflake("e62b930d873735bbede7ae1785d13233.svg"),
+                                ":envelope:",
+                                OptionalBoolean.Missing
+                            )
                         }
                     }
+                }
 
 //                    message.getGuild().getChannelOf<GuildMessageChannel>(Snowflake(ticketChannel.toString())).createMessage {
 //                        embed {
@@ -52,7 +55,6 @@ class SetCategoryCommand : ICommand {
 //                            }
 //                        }
 //                    }
-                }
 
             } else if (args.size > 2 && args[0] == "${prefix}setticketcategory") {
                 message.getChannel().createMessage {
