@@ -2,9 +2,9 @@ import command.HelpCMD
 import command.server.AboutCMD
 import command.server.AnnounceCMD
 import command.server.ClearCMD
+import command.server.ticket.SetCategoryCommand
 import dev.kord.common.entity.PresenceStatus
 import dev.kord.core.Kord
-import listener.ButtonListener
 
 // !! = Not Null
 // ? = If not null
@@ -29,7 +29,7 @@ suspend fun main() {
 }
 
 fun registerListeners(client: Kord) {
-    ButtonListener().onEvent(client)
+
 }
 
 fun registerCommands(client: Kord) {
@@ -37,6 +37,7 @@ fun registerCommands(client: Kord) {
     ClearCMD().onCommand(client)
     HelpCMD().onCommand(client)
     AboutCMD().onCommand(client)
+    SetCategoryCommand().onCommand(client)
 }
 
 object BotUtil {
