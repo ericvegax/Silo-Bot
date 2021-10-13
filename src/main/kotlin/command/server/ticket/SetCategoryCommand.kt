@@ -20,11 +20,10 @@ class SetCategoryCommand : ICommand {
             val args = BotUtil.getArgs(message.content)
             val eColor = BotUtil.getMainEmbedColor()
             val prefix = BotUtil.getCommandPrefix()
-            val ticketChannel = getGuild()?.getChannel(Snowflake(args[1]))
 
             if (args[0] == "${prefix}setticketchannel") {
-                if (args[1] == ticketChannel?.mention) {
-                    kord.unsafe.guildMessageChannel(message.getGuild().id, Snowflake(ticketChannel.toString())).createMessage {
+                if (args[1] == message.getGuild().getChannel(Snowflake(args[1])).mention) {
+                    kord.unsafe.guildMessageChannel(message.getGuild().id, Snowflake(args[1])).createMessage {
                         embed {
                             title = "Create a ticket"
                             description = "Click the button below to create a ticket"
