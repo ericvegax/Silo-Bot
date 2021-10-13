@@ -27,11 +27,24 @@ class SetCategoryCommand : ICommand {
                         title = "Create a ticket"
                         description = "Click the button below to create a ticket"
                         color = Color(eColor[0], eColor[1], eColor[2])
+
+                        field {
+                            name = "Info"
+                            value = "If you need assistance with one of my plugins,\n"
+                                    "feel free to create a ticket and I’ll get back to you as soon as possible.\n" +
+                                    "However, if your not familiar with any of my plugins as of yet, please check out #recources ,\n" +
+                                    "there you will see a list of all the plugins that I’ve uploaded onto SpigotMC."
+                            inline = false
+                        }
                     }
 
                     actionRow {
                         interactionButton(ButtonStyle.Secondary, "ticket_creation_button") {
-                            emoji = DiscordPartialEmoji(Snowflake(654095081845948429), "Ticket", animated = OptionalBoolean.Missing)
+                            emoji = DiscordPartialEmoji(
+                                Snowflake(654095081845948429),
+                                "Ticket",
+                                animated = OptionalBoolean.Missing
+                            )
                             label = "Create Ticket"
                         }
                     }

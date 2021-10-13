@@ -11,6 +11,7 @@ class TicketButton : IListener {
         client.on<ButtonInteractionCreateEvent> {
             if (interaction.componentId == "ticket_creation_button") {
                 interaction.user.getDmChannel().createMessage("It works!")
+                interaction.acknowledgePublic()
             }
         }
     }
