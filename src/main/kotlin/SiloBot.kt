@@ -2,7 +2,7 @@ import command.HelpCMD
 import command.server.AboutCMD
 import command.server.AnnounceCMD
 import command.server.ClearCMD
-import command.server.ticket.SetCategoryCommand
+import command.server.ticket.SetupTicketSystemCommand
 import dev.kord.common.entity.PresenceStatus
 import dev.kord.core.Kord
 import listener.button.TicketButton
@@ -38,7 +38,7 @@ fun registerCommands(client: Kord) {
     ClearCMD().onCommand(client)
     HelpCMD().onCommand(client)
     AboutCMD().onCommand(client)
-    SetCategoryCommand().onCommand(client)
+    SetupTicketSystemCommand().onCommand(client)
 }
 
 object BotUtil {

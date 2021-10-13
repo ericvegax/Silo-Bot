@@ -12,7 +12,7 @@ import dev.kord.core.on
 import dev.kord.rest.builder.message.create.actionRow
 import dev.kord.rest.builder.message.create.embed
 
-class SetCategoryCommand : ICommand {
+class SetupTicketSystemCommand : ICommand {
 
     @OptIn(KordUnsafe::class, dev.kord.common.annotation.KordExperimental::class)
     override fun onCommand(client: Kord) {
@@ -29,11 +29,15 @@ class SetCategoryCommand : ICommand {
                         color = Color(eColor[0], eColor[1], eColor[2])
 
                         field {
+                            val builder = StringBuilder()
+
+                            builder.append("If you need assistance with one of my plugins,\n")
+                            builder.append("feel free to create a ticket and I’ll get back to you as soon as possible.\n")
+                            builder.append("However, if your not familiar with any of my plugins as of yet, please check out #recources ,\n")
+                            builder.append( "there you will see a list of all the plugins that I’ve uploaded onto SpigotMC.")
+
                             name = "Info"
-                            value = "If you need assistance with one of my plugins,\n"
-                                    "feel free to create a ticket and I’ll get back to you as soon as possible.\n" +
-                                    "However, if your not familiar with any of my plugins as of yet, please check out #recources ,\n" +
-                                    "there you will see a list of all the plugins that I’ve uploaded onto SpigotMC."
+                            value = builder.toString()
                             inline = false
                         }
                     }
