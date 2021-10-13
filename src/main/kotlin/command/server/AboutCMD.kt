@@ -56,7 +56,7 @@ class AboutCMD : ICommand {
 
                                 builder = StringBuilder()
 
-                                builder.append("`Kord` This bot is built using a Kotlin Wrapper for the Discord API\n")
+                                builder.append("`Kord` This bot was built using an idiomatic Kotlin Wrapper for the Discord API\n")
                                 builder.append("`Heroku` Currently, the 24/7 hosting of this bot is handled by Heroku\n")
 
                                 name = "Back-End"
