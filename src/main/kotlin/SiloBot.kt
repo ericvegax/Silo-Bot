@@ -5,6 +5,7 @@ import command.server.ClearCMD
 import command.server.ticket.SetCategoryCommand
 import dev.kord.common.entity.PresenceStatus
 import dev.kord.core.Kord
+import listener.button.TicketButton
 
 // !! = Not Null
 // ? = If not null
@@ -29,7 +30,7 @@ suspend fun main() {
 }
 
 fun registerListeners(client: Kord) {
-
+    TicketButton().onEvent(client)
 }
 
 fun registerCommands(client: Kord) {

@@ -9,8 +9,8 @@ class TicketButton : IListener {
 
     override fun onEvent(client: Kord) {
         client.on<ButtonInteractionCreateEvent> {
-            if (interaction.componentId == "") {
-
+            if (interaction.componentId == "ticket_creation_button") {
+                interaction.user.getDmChannel().createMessage("It works!")
             }
         }
     }
