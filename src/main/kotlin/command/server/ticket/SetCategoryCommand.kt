@@ -55,7 +55,7 @@ class SetCategoryCommand : ICommand {
 //                    }
                 }
 
-            } else if (args.size > 1 && args[0] == "${prefix}setticketcategory") {
+            } else if (args.size > 2 && args[0] == "${prefix}setticketcategory") {
                 message.getChannel().createMessage {
                     embed {
                         title = "Incorrect Usage!"
