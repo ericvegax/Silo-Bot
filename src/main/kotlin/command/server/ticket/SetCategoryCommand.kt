@@ -21,7 +21,7 @@ class SetCategoryCommand : ICommand {
             val eColor = BotUtil.getMainEmbedColor()
             val prefix = BotUtil.getCommandPrefix()
 
-            if (args[0] == "${prefix}setuptickets") {
+            if (args[0] == "${prefix}setupticketsystem" || args[0] == "${prefix}sts") {
                 kord.unsafe.guildMessageChannel(message.getGuild().id, Snowflake(767622445301497886)).createMessage {
                     embed {
                         title = "Create a ticket"
@@ -30,9 +30,9 @@ class SetCategoryCommand : ICommand {
                     }
 
                     actionRow {
-                        interactionButton(ButtonStyle.Primary, "ticket_creation_button") {
+                        interactionButton(ButtonStyle.Secondary, "ticket_creation_button") {
+                            emoji = DiscordPartialEmoji(null, "✉️️", animated = OptionalBoolean.Missing)
                             label = "Create Ticket"
-                            emoji = DiscordPartialEmoji(null, "\uD83C\uDF9F️", animated = OptionalBoolean.Missing)
                         }
                     }
                 }
