@@ -32,11 +32,6 @@ class SetCategoryCommand : ICommand {
                     actionRow {
                         interactionButton(ButtonStyle.Primary, "ticket_creation_button") {
                             label = "Create Ticket"
-                            emoji = DiscordPartialEmoji(
-                                Snowflake("e62b930d873735bbede7ae1785d13233"),
-                                ":envelope:",
-                                OptionalBoolean.Missing
-                            )
                         }
                     }
                 }
