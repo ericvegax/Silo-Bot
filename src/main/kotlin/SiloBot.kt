@@ -4,6 +4,7 @@ import command.server.AnnounceCMD
 import command.server.ClearCMD
 import dev.kord.common.entity.PresenceStatus
 import dev.kord.core.Kord
+import listener.ButtonListener
 
 // !! = Not Null
 // ? = If not null
@@ -16,6 +17,7 @@ suspend fun main() {
     val client = Kord("ODk2NTI2NzQ2NjIxNDU2NDE0.YWIZmQ.hvq3Aa1JjUBLNUV2fU5O6RR3-1g")
 
     registerCommands(client)
+    registerListeners(client)
 
     client.login {
         presence {
@@ -24,6 +26,10 @@ suspend fun main() {
             listening("!help")
         }
     }
+}
+
+fun registerListeners(client: Kord) {
+    ButtonListener().onEvent(client)
 }
 
 fun registerCommands(client: Kord) {

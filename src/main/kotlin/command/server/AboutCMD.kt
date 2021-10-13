@@ -2,7 +2,6 @@ package command.server
 
 import command.ICommand
 import dev.kord.common.Color
-import dev.kord.common.entity.*
 import dev.kord.core.Kord
 import dev.kord.core.behavior.channel.createMessage
 import dev.kord.core.event.message.MessageCreateEvent
@@ -72,19 +71,12 @@ class AboutCMD : ICommand {
                         }
 
                         actionRow {
-                            interactionButton(ButtonStyle.Primary, "click_this_function") {
-                                label = "My First Button!"
-                                build()
+                            linkButton("https://github.com/kordlib/kord") {
+                                label = "Kord"
+                            }
 
-                                if (message.id.equals(customId)) {
-                                    message.getAuthorAsMember()?.getDmChannel()?.createMessage {
-                                        embed {
-                                            title = "My Dm message"
-                                            description = "Description of my DM Message"
-                                            color = Color(0, 1, 0)
-                                        }
-                                    }
-                                }
+                            linkButton("https://heroku.com") {
+                                label = "Heroku"
                             }
                         }
                     }
