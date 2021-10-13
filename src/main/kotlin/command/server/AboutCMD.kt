@@ -31,8 +31,8 @@ class AboutCMD : ICommand {
 
                             field {
 
-                                builder.append("**Moderation** Oversees this server and watch for any rules broken at all times\n")
-                                builder.append("**Management** Handles anything from welcomes to announcements, suggestions, resource updates, and more!\n")
+                                builder.append("`Moderation` Oversees this server and watch for any rules broken at all times\n")
+                                builder.append("`Management` Handles anything from welcomes to announcements, suggestions, resource updates, and more!\n")
 
                                 name = "Purpose\n"
                                 value = builder.toString()
@@ -43,9 +43,9 @@ class AboutCMD : ICommand {
 
                                 builder = StringBuilder()
 
-                                builder.append("**Ticket System** Able to create & manage Tickets\n")
-                                builder.append("**Punishment System** Contains the ability to detect broken rules\n")
-                                builder.append("**Payment System** Able to handle any transaction securely with PayPal\n")
+                                builder.append("`Ticket System` Able to create & manage Tickets\n")
+                                builder.append("`Punishment System` Contains the ability to detect broken rules\n")
+                                builder.append("`Payment System` Able to handle any transaction securely with PayPal\n")
 
                                 name = "Features\n"
                                 value = builder.toString()
@@ -56,8 +56,8 @@ class AboutCMD : ICommand {
 
                                 builder = StringBuilder()
 
-                                builder.append("**Kord** This bot is built using a Kotlin Wrapper for the Discord API\n")
-                                builder.append("**Heroku** Currently, the 24/7 hosting of this bot is handled by Heroku\n")
+                                builder.append("`Kord` This bot is built using a Kotlin Wrapper for the Discord API\n")
+                                builder.append("`Heroku` Currently, the 24/7 hosting of this bot is handled by Heroku\n")
 
                                 name = "Back-End"
                                 value = builder.toString()
