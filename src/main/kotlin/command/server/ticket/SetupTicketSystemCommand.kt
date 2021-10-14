@@ -34,7 +34,7 @@ class SetupTicketSystemCommand : ICommand {
                             builder.append("If you need assistance with one of my plugins,\n")
                             builder.append("feel free to create a ticket and I’ll get back to you as soon as possible.\n")
                             builder.append(
-                                "However, if your not familiar with any of my plugins as of yet, please check out ${
+                                "However, if your not familiar with any of my plugins as of yet, please check\n out ${
                                     message.getGuild().getChannel(
                                         Snowflake(767307646654742528)
                                     ).mention
