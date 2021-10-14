@@ -1,4 +1,4 @@
-<h1 align="center"><img src="./assets/logo.gif" width="30px"> Silo Bot <img src="./assets/logo.gif" width="30px"></h1>
+<h1 align="center">Silo Bot</h1>
 <p align="center">Built To Moderate & Manage My Discord Server</p>
 
 ## Features
