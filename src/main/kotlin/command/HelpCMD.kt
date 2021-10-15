@@ -9,15 +9,16 @@ import dev.kord.core.on
 import dev.kord.rest.builder.message.EmbedBuilder.Companion.ZERO_WIDTH_SPACE
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
+import util.UtilDiscord
 
 class HelpCMD : ICommand {
 
     override fun onCommand(client: Kord) {
         client.on<MessageCreateEvent> {
 
-            val args = BotUtil.getArgs(message.content)
-            val eColor = BotUtil.getMainEmbedColor()
-            val prefix = BotUtil.getCommandPrefix()
+            val args = UtilDiscord.getArgs(message.content)
+            val eColor = UtilDiscord.getMainEmbedColor()
+            val prefix = UtilDiscord.getCommandPrefix()
 
             if (args.size == 1) {
                 if (args[0] == "${prefix}help") {
@@ -31,8 +32,9 @@ class HelpCMD : ICommand {
 
                             var builder: StringBuilder = StringBuilder()
 
-                            for (i in 0 until BotUtil.getCommandsMap()["general"]?.size!!)
-                                builder.append("${BotUtil.getCommandsMap()["general"]!![i]}\n")
+                            UtilDiscord.getCommandsMap()["general"]?.forEach {
+                                builder.append(it)
+                            }
 
                             if (message.getAuthorAsMember()?.getPermissions()
                                     ?.contains(Permission.Administrator) == false
@@ -57,8 +59,8 @@ class HelpCMD : ICommand {
 
                                 builder = StringBuilder()
 
-                                for (i in 0 until BotUtil.getCommandsMap()["admin"]?.size!!)
-                                    builder.append("${BotUtil.getCommandsMap()["admin"]!![i]}\n")
+                                for (i in 0 until UtilDiscord.getCommandsMap()["admin"]?.size!!)
+                                    builder.append("${UtilDiscord.getCommandsMap()["admin"]!![i]}\n")
 
                                 field {
                                     name = "Admin Commands"

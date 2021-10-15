@@ -8,14 +8,15 @@ import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
 import dev.kord.rest.builder.message.create.actionRow
 import dev.kord.rest.builder.message.create.embed
+import util.UtilDiscord
 
 class AboutCMD : ICommand {
 
     override fun onCommand(client: Kord) {
         client.on<MessageCreateEvent> {
-            val args = BotUtil.getArgs(message.content)
-            val eColor = BotUtil.getMainEmbedColor()
-            val prefix = BotUtil.getCommandPrefix()
+            val args = UtilDiscord.getArgs(message.content)
+            val eColor = UtilDiscord.getMainEmbedColor()
+            val prefix = UtilDiscord.getCommandPrefix()
 
             if (args.size == 1) {
                 if (args[0] == "${prefix}about") {
