@@ -15,7 +15,8 @@ suspend fun main() {
     val token = System.getenv("BOT_TOKEN")
         ?: throw Exception("Must include bot token in environment variable for bot to run")
 
-    val client = Kord("ODk2NTI2NzQ2NjIxNDU2NDE0.YWIZmQ.hvq3Aa1JjUBLNUV2fU5O6RR3-1g")
+    //val client = Kord("ODk2NTI2NzQ2NjIxNDU2NDE0.YWIZmQ.hvq3Aa1JjUBLNUV2fU5O6RR3-1g")
+    val client = Kord(token)
 
     registerCommands(client)
     registerListeners(client)

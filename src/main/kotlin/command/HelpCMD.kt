@@ -59,8 +59,9 @@ class HelpCMD : ICommand {
 
                                 builder = StringBuilder()
 
-                                for (i in 0 until UtilDiscord.getCommandsMap()["admin"]?.size!!)
-                                    builder.append("${UtilDiscord.getCommandsMap()["admin"]!![i]}\n")
+                                UtilDiscord.getCommandsMap()["admin"]!!.forEach {
+                                    builder.append("${it}\n")
+                                }
 
                                 field {
                                     name = "Admin Commands"
@@ -71,8 +72,8 @@ class HelpCMD : ICommand {
 
 
                             footer {
-                                this.text = member?.getGuild()?.getOwner()?.displayName.toString()
-                                this.icon = member?.getGuild()?.getOwner()?.avatar?.cdnUrl?.toUrl()
+                                text = member?.getGuild()?.getOwner()?.displayName.toString()
+                                icon = member?.getGuild()?.getOwner()?.avatar?.cdnUrl?.toUrl()
                             }
                         }
 
