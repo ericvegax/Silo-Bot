@@ -6,7 +6,6 @@ import dev.kord.core.Kord
 import dev.kord.core.behavior.channel.createMessage
 import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
-import dev.kord.rest.builder.message.EmbedBuilder.Companion.ZERO_WIDTH_SPACE
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
 import util.UtilDiscord
@@ -52,8 +51,8 @@ class HelpCMD : ICommand {
                                 }
 
                                 field {
-                                    name = ZERO_WIDTH_SPACE
-                                    value = null.toString()
+                                    name = ""
+                                    value = ""
                                     inline = false
                                 }
 
