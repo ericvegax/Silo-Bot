@@ -53,7 +53,7 @@ class HelpCMD : ICommand {
 
                                 field {
                                     name = ZERO_WIDTH_SPACE
-                                    value = ZERO_WIDTH_SPACE
+                                    value = null.toString()
                                     inline = false
                                 }
 
