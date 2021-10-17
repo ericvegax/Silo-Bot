@@ -1,5 +1,5 @@
 <h1 align="center">Silo Bot</h1> 
-<p align="center">Built To Moderate & Manage My Discord Server</p>
+<p align="center">Built To Moderate, Manage And Assist With Any Discord Server Needs</p>
 
 <p align="center">
   <a href="https://travis-ci.org/Silo-Bot/Silo-Bot">
