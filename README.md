@@ -1,5 +1,10 @@
-<h1 align="center">Silo Bot</h1>
+<h1 align="center">Silo Bot</h1> 
 <p align="center">Built To Moderate & Manage My Discord Server</p>
+
+<p align="center">
+  <a href="https://travis-ci.org/Silo-Bot/Silo-Bot">
+  <img src="https://app.travis-ci.com/realericvega/Silo-Bot.svg?token=ZLdsKzydGpLuphBpAFpx&branch=main" alt="Travis-CI SiloBot Build Status Image">
+</p>
 
 ## Features
 Coming Soon...
