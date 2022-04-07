@@ -22,6 +22,10 @@ If you have issues with any of my plugins or applications, please join and ask f
 ## 📸 Screenshots
 Coming Soon...
 
+## Note
+  `Currently Underdevelopment`
 
 Made with :heart: and Kotlin!
+  
+  
 
